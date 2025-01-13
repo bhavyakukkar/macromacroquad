@@ -1,4 +1,4 @@
-use darkkit::{prelude::*, window};
+use macromacroquad::{prelude::*, window};
 use macroquad::{
     color::{self, Color},
     input::{is_mouse_button_pressed, mouse_position},
