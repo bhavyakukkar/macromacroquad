@@ -1,7 +1,14 @@
+pub mod utils;
+
+// TODO fns top_right, bottom_left, center
+// TODO include some threshold before panicking in sub-window fns if difference is negligible
+//      (at the moment doing top_left(perc(50.), perc(50.)) panics)
+// TODO you can also report names of problematic windows when asserting
+// TODO add elevation (zIndex) to WindowInner
 pub mod window;
 
 pub mod prelude {
-    pub use crate::window::{p, ScaleInto, Window};
+    pub use crate::window::{perc, ScaleInto, Window};
 }
 
 #[macro_export]
@@ -37,19 +44,4 @@ macro_rules! window {
             $crate::window::WindowInner::new(Some($size), None, None)
         )))
     }};
-}
-
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
 }
